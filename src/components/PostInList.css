@@ -1,0 +1,15 @@
+.postDiv {
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+.headerP {
+    display: flex;
+    flex-direction: column;
+}
+
+.dumpster {
+    align-self: center;
+    padding-right: 20px;
+}

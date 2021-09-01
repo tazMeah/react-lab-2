@@ -1,0 +1,23 @@
+h1 {
+    color: darkslategray;
+    text-align: center;
+    font-family: "Homemade Apple", cursive;
+    padding: 20px 10px;
+}
+
+main {
+    border: solid 3px darkslategray;
+    border-radius: 10px;
+    background:lightgrey;
+    padding: none;
+    font-family: "Dosis", sans-serif;
+}
+
+.postDiv {
+    background: lightgrey;
+    margin: 10px;
+    padding-left: 20px;
+    border-bottom: solid 3px lightslategrey;
+   
+}
+
