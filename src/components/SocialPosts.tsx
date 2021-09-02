@@ -1,45 +1,40 @@
 import PostForm from "./PostForm";
 import PostInList from "./PostInList";
-import App from "../App";
-import Post from "./Post"
+import {postsArray} from "./Post"
 import {useState} from "react";
 import "./SocialPosts.css"
 
 
-// interface Post {
-//     title: string;
-//     thought: string;
-//   }
-
-
-const postsArray: Post[] = [  {
-    title: "Tricks or Treats?",
-    thought: "We need to bring back the tricks! Too many treats."
-  },
-  {
-    title: "Candy Corn Fan Post",
-    thought: "I could eat it year-round.",
-  }, 
-  {
-     title: "To my neighbor: You're not a vampire...", 
-     thought: "You can't see your reflection because that's not a mirror. It's a window. #ISeeYou "
-  }
-]
-
-
 function SocialPosts() {
     const [posts, setPosts] = useState(postsArray);
+    const[title, setTitle] = useState("");
+    const[thought, setThought] = useState("");
+
+
+    function onSubmit() {
+        let posts2 = [...posts];
+        posts2.unshift({title: title, thought: thought});
+        setPosts(posts2)
+        setTitle("");
+        setThought("");
+    }
+
+    function deletePost(index: number) {
+        let posts2 = [...posts];
+        posts2.splice(index, 1);
+        setPosts(posts2);
+    }
    
  
     return (
         <div>
             <h1>My Spooky Thoughts</h1> 
                 
-            <PostForm />
+            <PostForm onSubmit={onSubmit} setTitle={setTitle} setThought={setThought}/>
 
        <main>
            {posts.map((item,index) => <span key={index}>
-               <PostInList title={item.title} thought={item.thought}/>
+               <PostInList title={item.title} thought={item.thought} onDelete={() => {deletePost(index)}}/>
                 </span>)}
        </main>
 
