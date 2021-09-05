@@ -1,39 +1,42 @@
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color:rgb(187, 96, 68) !important;
-    border: none !important;
-    width: 200px;
-    font-family: "Dosis", san-serif;
-    font-weight: 400;
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+	background-color: rgb(187, 96, 68) !important;
+	border: none !important;
+	width: 200px;
+	font-family: "Dosis", san-serif;
+	font-weight: 400;
 }
 
-.formWrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-    
+.formWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
 }
 
 .modal {
-    font-family: "Dosis", san-serif !important;
+	font-family: "Dosis", san-serif !important;
 }
 
-.modalBody{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 3px;
+.modalBody {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 3px;
 }
 
 label {
-    margin: 2px;
+	margin: 2px;
 }
 
-input {
-    width: 100%;
+input,
+textarea {
+	width: 100%;
 }
 
 .thoughtInput {
-    padding-bottom: 30vh;
+	padding-bottom: 30vh;
 }
