@@ -4,9 +4,8 @@ import App from './App';
 import PostInList from './components/PostInList';
 import Post from "./components/Post"
 import PostForm from "./components/PostForm"
-import { stringify } from 'querystring';
 import SocialPosts from "./components/SocialPosts"
-import { debug } from 'console';
+
 
 // first test case
 test('renders title and thought', () => {
@@ -30,6 +29,7 @@ test('renders title and thought', () => {
   expect(thought).toBeInTheDocument;
 });
 
+// onDelete function works in post in list file
 test('spy function is called when delete button is pressed', () => {
   const post: Post = {title: "Test Title", thought: "Test Thought"};
   const spy = jest.fn();
@@ -39,22 +39,23 @@ test('spy function is called when delete button is pressed', () => {
   expect(spy).toHaveBeenCalled();
 });
 
-
+// ~~~~~ TEST THAT WONT PASS ~~~~~~
 test("onSubmit is called with correct Post object after submitting form", async () => {
   // create spy fn for submit and spy fn for useStates
   const spy = jest.fn();
+  
   // const setState = jest.fn();
   // const useStateSpy = jest.spyOn(React, "useState");
   // mock implementation of setting title and thought
   // spy.mockImplementation((init) => [init, spy]);
   
   render(<PostForm onSubmit={spy} setTitle={spy} setThought={spy}/>);
-  // switching class "show" to true
+ 
+    // had to firevent first to be able to access the form and test it
   const show = screen.getByRole("button", {name: "showForm"});
   fireEvent.click(show);
   const form = screen.getByRole("form", {name: "form"});
-  // const modal = screen.getByRole("modal", {name: "modalForm"})
-  // expect(modal).toHaveClass("modal-dialog");
+  // checking if form is available now
   expect(form).toBeInTheDocument();
   // filling out the form
   const titleEl = screen.getByRole("textbox1", {name: "titleInput"});
@@ -71,13 +72,13 @@ test("onSubmit is called with correct Post object after submitting form", async 
 });
 
 
-test('calls onClose callback when close button is clicked', () => {
-  const post: Post = {title: "Test Title", thought: "Test Thought"};
-  const spy = jest.fn();
-  render(<PostInList title={post.title} thought={post.thought} onDelete={spy}/>);
-  const btn = screen.getByRole("button", {name: "onDelete"})
-  fireEvent.click(btn)
-  expect(spy).toHaveBeenCalled();
-});
+// test('calls onClose callback when close button is clicked', () => {
+//   const post: Post = {title: "Test Title", thought: "Test Thought"};
+//   const spy = jest.fn();
+//   render(<PostInList title={post.title} thought={post.thought} onDelete={spy}/>);
+//   const btn = screen.getByRole("button", {name: "onDelete"})
+//   fireEvent.click(btn)
+//   expect(spy).toHaveBeenCalled();
+// });
 
 
