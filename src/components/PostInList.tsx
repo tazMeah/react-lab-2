@@ -16,6 +16,8 @@ function PostInList(props: {
           </div>
           <div className="dumpster">
             <i className="fas fa-dumpster"
+            role="button"
+            aria-label="onDelete"
             onClick={() => { props.onDelete()
             }}
             ></i>

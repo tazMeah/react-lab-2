@@ -30,7 +30,7 @@ function SocialPosts() {
         <div>
             <h1>My Spooky Thoughts</h1> 
                 
-            <PostForm onSubmit={onSubmit} setTitle={setTitle} setThought={setThought}/>
+            <PostForm onSubmit={onSubmit} setTitle={setTitle} setThought={setThought} />
 
        <main>
            {posts.map((item,index) => <span key={index}>
